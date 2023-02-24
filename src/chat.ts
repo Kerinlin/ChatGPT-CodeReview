@@ -22,10 +22,7 @@ export class Chat {
     console.time('code-review cost');
     const prompt = this.generatePrompt(patch);
 
-    const res = await this.chatAPI.sendMessage(prompt, {
-      promptPrefix: 'hi,',
-      promptSuffix: "\nlet's start",
-    });
+    const res = await this.chatAPI.sendMessage(prompt);
 
     console.timeEnd('code-review cost');
     return res.text;
